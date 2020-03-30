@@ -19,8 +19,8 @@ inputs:
   description:
     description: Issue description
     required: false
-  label:
-    description: Label
+  labels:
+    description: Labels
   jiraEmail:
     description: Jira email
     required: true

@@ -1,13 +1,13 @@
 const axios = require('axios');
 
 class CreateJiraIssueAction {
-    constructor (baseurl, project, issuetype, summary, description, label, token) {
+    constructor (baseurl, project, issuetype, summary, description, labels, token) {
         this.baseurl = baseurl;
         this.project = project;
         this.issuetype = issuetype;
         this.summary = summary;
         this.description = description;
-        this.label = label;
+        this.labels = labels;
         this.token = token;
       }
     
@@ -28,9 +28,7 @@ class CreateJiraIssueAction {
                 "issuetype": {
                   "name": this.issuetype
                 },
-                "labels": [
-                  this.label
-                ]
+                "labels": this.labels
             }
           }
   
