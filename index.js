@@ -15,7 +15,9 @@ async function exec () {
     };
     const base64token = Buffer.from(`${inputs.jiraEmail}:${inputs.jiraToken}`).toString('base64');
     const responsePayload = await new CreateJiraIssueAction(inputs.jiraBaseUrl, inputs.project, inputs.issuetype, inputs.summary, inputs.description, inputs.labels.split(','), base64token).execute();
-    return responsePayload.data
+    return {
+      issue: responsePayload.data.key
+    };
   } catch (error) {
     console.error(error)
     process.exit(1)
