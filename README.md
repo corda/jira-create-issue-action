@@ -1,4 +1,6 @@
-# git-jira-create-action
+# jira-create-issue-action
+
+This is a github action step implementation to create issues in jira for newly created issues in github, written in js.
 
 ## Requirements
 
