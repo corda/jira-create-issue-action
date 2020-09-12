@@ -15,7 +15,7 @@
     "axios": "^0.19.2",
     "fs": "0.0.1-security",
     "lodash": "^4.17.19",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "yaml": "^1.8.3"
   }
 }
