@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 class CreateJiraIssueAction {
-    constructor (baseurl, project, issuetype, summary, description, labels, token) {
+    constructor (baseurl, project, issuetype, summary, description, labels, token, squad) {
         this.baseurl = baseurl;
         this.project = project;
         this.issuetype = issuetype;
@@ -9,15 +9,16 @@ class CreateJiraIssueAction {
         this.description = description;
         this.labels = labels;
         this.token = token;
+        this.squad = squad;
       }
-    
+
       async execute() {
           let config = {
               headers: {
                   'Authorization': `Basic ${this.token}`,
               }
           }
-  
+
           let data = {
             "fields": {
                 "summary": this.summary,
@@ -28,10 +29,15 @@ class CreateJiraIssueAction {
                 "issuetype": {
                   "name": this.issuetype
                 },
-                "labels": this.labels
+                "labels": this.labels,
+                /* required Squad field */
+                "customfield_11987": {
+                    "value": this.squad
+                }
+
             }
           }
-  
+
           const response = await axios.post(`${this.baseurl}/rest/api/2/issue`, data, config);
           //console.log('Full response:\n');
           //console.log(response)
