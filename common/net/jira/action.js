@@ -10,16 +10,14 @@ class CreateJiraIssueAction {
         this.labels = labels;
         this.token = token;
       }
-
+    
       async execute() {
           let config = {
               headers: {
                   'Authorization': `Basic ${this.token}`,
               }
           }
-
-          const myself = await axios.get(`${this.baseurl}/rest/api/2/myself`, config);
-
+  
           let data = {
             "fields": {
                 "summary": this.summary,
@@ -30,13 +28,10 @@ class CreateJiraIssueAction {
                 "issuetype": {
                   "name": this.issuetype
                 },
-                "labels": this.labels,
-                "reporter": {
-                    "id": myself.data.accountId
-                }
+                "labels": this.labels
             }
           }
-
+  
           const response = await axios.post(`${this.baseurl}/rest/api/2/issue`, data, config);
           //console.log('Full response:\n');
           //console.log(response)
