@@ -16,9 +16,6 @@ inputs:
   summary:
     description: Issue summary
     required: true
-  description:
-    description: Issue description
-    required: false
   labels:
     description: Labels
   jiraEmail:

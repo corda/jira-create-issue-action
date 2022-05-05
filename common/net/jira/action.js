@@ -31,9 +31,9 @@ class CreateJiraIssueAction {
           }
 
           const response = await axios.post(`${this.baseurl}/rest/api/3/issue`, data, config);
-          console.log('Full response:\n');
-          console.log(response)
-          console.log('\n')
+          // console.log('Full response:\n');
+          // console.log(response)
+          // console.log('\n')
           return response;
       }
 }
